@@ -168,7 +168,7 @@ contactForm.addEventListener("submit",e=>{
   emailjs.send(serviceID, templateID, inputFields)
   .then(()=>{
     //change button text
-    btn.innerText="Message Sent Successfully";
+    submit_btn.innerText="Message Sent Successfully";
 
     // clear all input values
     userName.value="",
