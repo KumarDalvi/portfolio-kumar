@@ -157,8 +157,15 @@ function sendEmail(){
         text: "Message Sent Succesfully!",
         icon: "success"
       });
+      fullname.value="",
+      email.value="",
+      phone.value="",
+      emailSub.value="",
+      msgBody.value=""
     }
   }
+
+
   );
 }
 
