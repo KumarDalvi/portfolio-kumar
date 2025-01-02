@@ -1,4 +1,4 @@
-document.querySelector(".bars-box").classList.add("active"); 
+document.querySelector(".bars-box").classList.add("active");
 
 const navLinks = document.querySelectorAll("header nav a");
 const logoLink = document.querySelector(".logo");
@@ -6,9 +6,9 @@ const sections = document.querySelectorAll("section");
 const menuIcon = document.querySelector("#menu-icon");
 const navbar = document.querySelector("header nav");
 
-menuIcon.addEventListener('click', ()=>{
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active')
+menuIcon.addEventListener('click', () => {
+  menuIcon.classList.toggle('bx-x');
+  navbar.classList.toggle('active')
 })
 
 const activePage = () => {
@@ -34,7 +34,7 @@ const activePage = () => {
   });
 
   menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active')
+  navbar.classList.remove('active')
 };
 
 navLinks.forEach((link, idx) => {
@@ -93,9 +93,8 @@ const activePortfolio = () => {
   const imgSlide = document.querySelector(".portfolio-carousel .img-slide");
   const portfolioDetails = document.querySelectorAll(".portfolio-detail");
 
-  imgSlide.style.transform = `translateX(calc(${index * -100}% - ${
-    index * 2
-  }rem))`;
+  imgSlide.style.transform = `translateX(calc(${index * -100}% - ${index * 2
+    }rem))`;
 
   portfolioDetails.forEach((detail) => {
     detail.classList.remove("active");
@@ -131,56 +130,56 @@ arrowLeft.addEventListener("click", () => {
 // Contact Me Form
 
 // get elements from DOM
-const contactForm=document.querySelector('#contactForm');
-const userName=document.querySelector('#userName');
-const userEmail=document.querySelector('#userEmail');
-const userPhone=document.querySelector('#userPhone');
-const emailSubject=document.querySelector('#emailSubject');
-const userMessage=document.querySelector('#userMessage');
+const contactForm = document.querySelector('#contactForm');
+const userName = document.querySelector('#userName');
+const userEmail = document.querySelector('#userEmail');
+const userPhone = document.querySelector('#userPhone');
+const emailSubject = document.querySelector('#emailSubject');
+const userMessage = document.querySelector('#userMessage');
 
 // get data from email JS
-const publicKey='bhUKgWUi2fHzH5gKj';
-const serviceID='service_tz0pspp';
-const templateID='template_g73phyj';
+const publicKey = 'bhUKgWUi2fHzH5gKj';
+const serviceID = 'service_tz0pspp';
+const templateID = 'template_g73phyj';
 
 // initialize email js with public key
 emailjs.init(publicKey);
 
 // add submit event to the form
-contactForm.addEventListener("submit",e=>{
-  //prevent from default behaviour
+contactForm.addEventListener("submit", (e) => {
+  // Prevent default behavior
   e.preventDefault();
 
-  //change button text
-  submit_btn.innerText="just a moment..."
+  // Change button text
+  submit_btn.innerText = "Just a moment...";
 
-  //get all input filed values
-  const inputFields={
-    from_name:userName.value,
+  // Get all input field values
+  const inputFields = {
+    from_name: userName.value,
     from_email: userEmail.value,
     from_mob: userPhone.value,
     from_subject: subject.value,
-    message: userMessage.value
+    message: userMessage.value,
+  };
 
-  }
+  // Send the email
+  emailjs
+    .send(serviceID, templateID, inputFields)
+    .then(() => {
+      // Change button text
+      submit_btn.innerText = "Message Sent Successfully";
 
-  //send the email
-  emailjs.send(serviceID, templateID, inputFields)
-  .then(()=>{
-    //change button text
-    submit_btn.innerText="Message Sent Successfully";
-
-    // clear all input values
-    userName.value="",
-     userEmail.value="",
-     userPhone.value="",
-     subject.value="",
-     userMessage.valu=""
-  },(error)=>{
-    //console log the error
-    console.log(error);
-    //change button text
-    submit_btn.innerText="Something Went Wrong"
-  });
-
+      // Clear all input values
+      userName.value = "";
+      userEmail.value = "";
+      userPhone.value = "";
+      subject.value = "";
+      userMessage.value = "";
+    })
+    .catch((error) => {
+      // Console log the error
+      console.log(error);
+      // Change button text
+      submit_btn.innerText = "Something Went Wrong";
+    });
 });
