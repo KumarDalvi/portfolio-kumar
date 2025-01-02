@@ -126,60 +126,43 @@ arrowLeft.addEventListener("click", () => {
   activePortfolio();
 });
 
+// contact form using smtpjs.
+const form = document.querySelector('form');
+const fullname = document.getElementById("fullName");
+const email = document.getElementById("emailID");
+const phone = document.getElementById("phoneNumber");
+const emailSub = document.getElementById("emailSubject");
+const msgBody = document.getElementById("messageBody");
 
-// Contact Me Form
 
-// get elements from DOM
-const contactForm = document.querySelector('#contactForm');
-const userName = document.querySelector('#userName');
-const userEmail = document.querySelector('#userEmail');
-const userPhone = document.querySelector('#userPhone');
-const emailSubject = document.querySelector('#emailSubject');
-const userMessage = document.querySelector('#userMessage');
+function sendEmail(){
+  const bodyMessage= `Full Name: ${fullname.value}<br>  
+  Email: ${email.value}<br>
+  Phone: ${phone.value}<br>
+  Message: ${msgBody.value}`
 
-// get data from email JS
-const publicKey = 'bhUKgWUi2fHzH5gKj';
-const serviceID = 'service_tz0pspp';
-const templateID = 'template_g73phyj';
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "kumardalvi2019@gmail.com",
+    Password : "9EE59BBB36AC3877504C6B3AA213CECB9429",
+    To : 'kumardalvi2019@gmail.com',
+    From : "kumardalvi2019@gmail.com",
+    Subject : emailSub.value,
+    Body : bodyMessage
+  }).then(
+  message => {
+    if(message=="OK"){
+      Swal.fire({
+        title: "Success!",
+        text: "Message Sent Succesfully!",
+        icon: "success"
+      });
+    }
+  }
+  );
+}
 
-// initialize email js with public key
-emailjs.init(publicKey);
-
-// add submit event to the form
-contactForm.addEventListener("submit", (e) => {
-  // Prevent default behavior
+form.addEventListener("submit", e=>{
   e.preventDefault();
-
-  // Change button text
-  submit_btn.innerText = "Just a moment...";
-
-  // Get all input field values
-  const inputFields = {
-    from_name: userName.value,
-    from_email: userEmail.value,
-    from_mob: userPhone.value,
-    from_subject: subject.value,
-    message: userMessage.value,
-  };
-
-  // Send the email
-  emailjs
-    .send(serviceID, templateID, inputFields)
-    .then(() => {
-      // Change button text
-      submit_btn.innerText = "Message Sent Successfully";
-
-      // Clear all input values
-      userName.value = "";
-      userEmail.value = "";
-      userPhone.value = "";
-      subject.value = "";
-      userMessage.value = "";
-    })
-    .catch((error) => {
-      // Console log the error
-      console.log(error);
-      // Change button text
-      submit_btn.innerText = "Something Went Wrong";
-    });
-});
+  sendEmail()
+})
