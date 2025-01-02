@@ -152,7 +152,7 @@ contactForm.addEventListener("submit",e=>{
   e.preventDefault();
 
   //change button text
-  btn.innerText="just a moment..."
+  submit_btn.innerText="just a moment..."
 
   //get all input filed values
   const inputFields={
@@ -180,7 +180,7 @@ contactForm.addEventListener("submit",e=>{
     //console log the error
     console.log(error);
     //change button text
-    btn.innerText="Something Went Wrong"
+    submit_btn.innerText="Something Went Wrong"
   });
 
 });
