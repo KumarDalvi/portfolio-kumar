@@ -126,3 +126,61 @@ arrowLeft.addEventListener("click", () => {
   }
   activePortfolio();
 });
+
+
+// Contact Me Form
+
+// get elements from DOM
+const contactForm=document.querySelector('#contactForm');
+const userName=document.querySelector('#userName');
+const userEmail=document.querySelector('#userEmail');
+const userPhone=document.querySelector('#userPhone');
+const emailSubject=document.querySelector('#emailSubject');
+const userMessage=document.querySelector('#userMessage');
+
+// get data from email JS
+const publicKey='bhUKgWUi2fHzH5gKj';
+const serviceID='service_tz0pspp';
+const templateID='template_g73phyj';
+
+// initialize email js with public key
+emailjs.init(publicKey);
+
+// add submit event to the form
+contactForm.addEventListener("submit",e=>{
+  //prevent from default behaviour
+  e.preventDefault();
+
+  //change button text
+  btn.innerText="just a moment..."
+
+  //get all input filed values
+  const inputFields={
+    from_name:userName.value,
+    from_email: userEmail.value,
+    from_mob: userPhone.value,
+    from_subject: subject.value,
+    message: userMessage.value
+
+  }
+
+  //send the email
+  emailjs.send(serviceID, templateID, inputFields)
+  .then(()=>{
+    //change button text
+    btn.innerText="Message Sent Successfully";
+
+    // clear all input values
+    userName.value="",
+     userEmail.value="",
+     userPhone.value="",
+     subject.value="",
+     userMessage.valu=""
+  },(error)=>{
+    //console log the error
+    console.log(error);
+    //change button text
+    btn.innerText="Something Went Wrong"
+  });
+
+});

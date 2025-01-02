@@ -500,14 +500,14 @@
             </div>
 
             <div class="contact-box">
-                <form action="">
+                <form action="" id="contactForm">
                     <h2 class="heading">Contact <span>Me!</span></h2>
                     <div class="field-box">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="text" placeholder="Phone Number" required>
-                        <input type="text" placeholder="Email Subject" required>
-                        <textarea name="" id="" placeholder="Your Message" required></textarea>
+                        <input type="text" id="userName" placeholder="Full Name" required>
+                        <input type="email" id="userEmail" placeholder="Email Address" required>
+                        <input type="text" id="userPhone" placeholder="Phone Number" required>
+                        <input type="text" id="emailSubject" placeholder="Email Subject" required>
+                        <textarea name="" id="userMessage" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
@@ -516,6 +516,8 @@
     </section>
     <!-- custom js -->
     <script type="text/javascript" src="js/scipt.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </body>
 
 </html>
