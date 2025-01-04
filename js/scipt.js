@@ -126,50 +126,50 @@ arrowLeft.addEventListener("click", () => {
   activePortfolio();
 });
 
-// contact form using smtpjs.
-const form = document.querySelector('form');
-const fullname = document.getElementById("fullName");
-const email = document.getElementById("emailID");
-const phone = document.getElementById("phoneNumber");
-const emailSub = document.getElementById("emailSubject");
-const msgBody = document.getElementById("messageBody");
+// // contact form using smtpjs.
+// const form = document.querySelector('form');
+// const fullname = document.getElementById("fullName");
+// const email = document.getElementById("emailID");
+// const phone = document.getElementById("phoneNumber");
+// const emailSub = document.getElementById("emailSubject");
+// const msgBody = document.getElementById("messageBody");
 
 
-function sendEmail(){
-  const bodyMessage= `Full Name: ${fullname.value}<br>  
-  Email: ${email.value}<br>
-  Phone: ${phone.value}<br>
-  Message: ${msgBody.value}`
+// function sendEmail(){
+//   const bodyMessage= `Full Name: ${fullname.value}<br>  
+//   Email: ${email.value}<br>
+//   Phone: ${phone.value}<br>
+//   Message: ${msgBody.value}`
 
-  Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "kumardalvi2019@gmail.com",
-    Password : "9EE59BBB36AC3877504C6B3AA213CECB9429",
-    To : 'kumardalvi2019@gmail.com',
-    From : "kumardalvi2019@gmail.com",
-    Subject : emailSub.value,
-    Body : bodyMessage
-  }).then(
-  message => {
-    if(message=="OK"){
-      Swal.fire({
-        title: "Success!",
-        text: "Message Sent Succesfully!",
-        icon: "success"
-      });
-      fullname.value="",
-      email.value="",
-      phone.value="",
-      emailSub.value="",
-      msgBody.value=""
-    }
-  }
+//   Email.send({
+//     Host : "smtp.elasticemail.com",
+//     Username : "kumardalvi2019@gmail.com",
+//     Password : "9EE59BBB36AC3877504C6B3AA213CECB9429",
+//     To : 'kumardalvi2019@gmail.com',
+//     From : "kumardalvi2019@gmail.com",
+//     Subject : emailSub.value,
+//     Body : bodyMessage
+//   }).then(
+//   message => {
+//     if(message=="OK"){
+//       Swal.fire({
+//         title: "Success!",
+//         text: "Message Sent Succesfully!",
+//         icon: "success"
+//       });
+//       fullname.value="",
+//       email.value="",
+//       phone.value="",
+//       emailSub.value="",
+//       msgBody.value=""
+//     }
+//   }
 
 
-  );
-}
+//   );
+// }
 
-form.addEventListener("submit", e=>{
-  e.preventDefault();
-  sendEmail()
-})
+// form.addEventListener("submit", e=>{
+//   e.preventDefault();
+//   sendEmail()
+// })
