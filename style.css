@@ -890,3 +890,65 @@ section.active{
         padding: 2.5rem 3rem 3.5rem;
     }
 }
+
+
+
+
+
+/* Chat widget button */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .chat-widget img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Chat window */
+  .chat-window {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 9998;
+    display: none; /* Initially hidden */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Close button inside the chat window */
+  .chat-window .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+
+  
+
+  #chatbot-container {
+    position: fixed;
+    bottom: 0;
+    right: 20px; /* Adjust as needed */
+    z-index: 9999; /* High z-index to ensure visibility */
+  }

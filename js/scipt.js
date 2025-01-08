@@ -126,6 +126,38 @@ arrowLeft.addEventListener("click", () => {
   activePortfolio();
 });
 
+
+
+
+
+
+
+
+
+
+
+function toggleChat() {
+  const chatWindow = document.getElementById("chat-window");
+  if (chatWindow.classList.contains("open")) {
+    chatWindow.classList.remove("open");
+    chatWindow.classList.add("closed");
+  } else {
+    chatWindow.classList.remove("closed");
+    chatWindow.classList.add("open");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // // contact form using smtpjs.
 // const form = document.querySelector('form');
 // const fullname = document.getElementById("fullName");
