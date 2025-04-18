@@ -103,12 +103,12 @@ const activePortfolio = () => {
 };
 
 arrowRight.addEventListener("click", () => {
-  if (index < 4) {
+  if (index < 2) {
     index++;
     arrowRight.classList.remove("disabled");
     arrowLeft.classList.remove('disabled')
   } else {
-    index = 5;
+    index = 3;
     arrowRight.classList.add("disabled");
   }
   activePortfolio();
